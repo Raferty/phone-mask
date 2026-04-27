@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Use stable npm
-        run: npm install -g npm@10
-
       - name: Install dependencies
         run: npm ci --no-audit --fund=false --cache .npm-cache
 
