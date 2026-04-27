@@ -16,6 +16,25 @@ type DemoExample = {
   note: string;
 };
 
+type DemoNavItem = {
+  href: string;
+  label: string;
+};
+
+const demoNavItems: DemoNavItem[] = [
+  { href: '#basic', label: 'Basic input' },
+  { href: '#flag', label: 'Country flag' },
+  { href: '#selector', label: 'Country selector' },
+  { href: '#custom-option', label: 'Custom option' },
+  { href: '#country-model', label: 'Country model' },
+  { href: '#validation', label: 'Validation' },
+  { href: '#formats', label: 'Model formats' },
+  { href: '#readonly', label: 'Readonly' },
+  { href: '#allowed-countries', label: 'Allowed countries' },
+  { href: '#problematic', label: 'Problematic masks' },
+  { href: '#author', label: 'Author' },
+];
+
 const demoExamples: DemoExample[] = [
   {
     label: 'Kazakhstan',
@@ -139,34 +158,47 @@ function setExample(value: string): void {
 
 <template>
   <main class="demo-shell">
+    <aside class="demo-nav" aria-label="Demo navigation">
+      <a
+        v-for="item in demoNavItems"
+        :key="item.href"
+        class="demo-nav__link"
+        :href="item.href"
+      >
+        {{ item.label }}
+      </a>
+    </aside>
+
     <section class="demo-panel">
-      <h1>Phone mask</h1>
+      <section id="basic" class="demo-basic" aria-label="Basic phone input">
+        <h1>Phone mask</h1>
 
-      <label class="demo-field">
-        <span>Phone</span>
-        <PhoneMaskInput v-model="phone" />
-      </label>
+        <label class="demo-field">
+          <span>Phone</span>
+          <PhoneMaskInput v-model="phone" />
+        </label>
 
-      <dl class="demo-meta">
-        <div>
-          <dt>Value</dt>
-          <dd>{{ phone || '-' }}</dd>
-        </div>
-        <div>
-          <dt>Country</dt>
-          <dd>{{ countryMeta?.country || '-' }}</dd>
-        </div>
-        <div>
-          <dt>Country name</dt>
-          <dd>{{ countryName || '-' }}</dd>
-        </div>
-        <div>
-          <dt>Calling code</dt>
-          <dd>{{ countryMeta?.callingCode || '-' }}</dd>
-        </div>
-      </dl>
+        <dl class="demo-meta">
+          <div>
+            <dt>Value</dt>
+            <dd>{{ phone || '-' }}</dd>
+          </div>
+          <div>
+            <dt>Country</dt>
+            <dd>{{ countryMeta?.country || '-' }}</dd>
+          </div>
+          <div>
+            <dt>Country name</dt>
+            <dd>{{ countryName || '-' }}</dd>
+          </div>
+          <div>
+            <dt>Calling code</dt>
+            <dd>{{ countryMeta?.callingCode || '-' }}</dd>
+          </div>
+        </dl>
+      </section>
 
-      <section class="demo-flag-example" aria-label="Country flag example">
+      <section id="flag" class="demo-flag-example" aria-label="Country flag example">
         <h2>With country flag</h2>
 
         <label class="demo-field">
@@ -194,7 +226,11 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-country-selector-example" aria-label="Country selector example">
+      <section
+        id="selector"
+        class="demo-country-selector-example"
+        aria-label="Country selector example"
+      >
         <h2>Country selector</h2>
 
         <label class="demo-field">
@@ -229,7 +265,11 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-country-selector-example" aria-label="Custom country option example">
+      <section
+        id="custom-option"
+        class="demo-country-selector-example"
+        aria-label="Custom country option example"
+      >
         <h2>Custom country option</h2>
 
         <label class="demo-field">
@@ -265,7 +305,11 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-country-model-example" aria-label="Country model example">
+      <section
+        id="country-model"
+        class="demo-country-model-example"
+        aria-label="Country model example"
+      >
         <h2>Default country and country model</h2>
 
         <label class="demo-field">
@@ -294,7 +338,7 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-validation-example" aria-label="Validation example">
+      <section id="validation" class="demo-validation-example" aria-label="Validation example">
         <h2>Validation</h2>
 
         <label class="demo-field">
@@ -331,7 +375,7 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-format-example" aria-label="Model format example">
+      <section id="formats" class="demo-format-example" aria-label="Model format example">
         <h2>Model formats</h2>
 
         <label class="demo-field">
@@ -368,7 +412,7 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-readonly-example" aria-label="Readonly example">
+      <section id="readonly" class="demo-readonly-example" aria-label="Readonly example">
         <h2>Readonly</h2>
 
         <label class="demo-field">
@@ -384,7 +428,11 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-restricted-example" aria-label="Allowed countries example">
+      <section
+        id="allowed-countries"
+        class="demo-restricted-example"
+        aria-label="Allowed countries example"
+      >
         <h2>Only +7 countries</h2>
 
         <label class="demo-field">
@@ -412,7 +460,7 @@ function setExample(value: string): void {
         </dl>
       </section>
 
-      <section class="demo-examples" aria-label="Problematic masks">
+      <section id="problematic" class="demo-examples" aria-label="Problematic masks">
         <h2>Problematic examples</h2>
 
         <label class="demo-field">
@@ -452,6 +500,25 @@ function setExample(value: string): void {
             <small>{{ example.note }}</small>
           </button>
         </div>
+      </section>
+
+      <section id="author" class="demo-author" aria-label="Author">
+        <h2>Author</h2>
+
+        <dl class="demo-meta">
+          <div>
+            <dt>Nickname</dt>
+            <dd>Raferty</dd>
+          </div>
+          <div>
+            <dt>Telegram</dt>
+            <dd>
+              <a href="https://t.me/Raferty" target="_blank" rel="noreferrer">
+                @Raferty
+              </a>
+            </dd>
+          </div>
+        </dl>
       </section>
     </section>
   </main>

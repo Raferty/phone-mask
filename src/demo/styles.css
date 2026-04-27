@@ -8,16 +8,53 @@ body {
   background: #f8fafc;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .demo-shell {
   display: grid;
+  grid-template-columns: minmax(150px, 180px) minmax(0, 560px);
+  align-items: start;
+  justify-content: center;
+  gap: 32px;
   min-height: 100vh;
-  place-items: center;
-  padding: 24px;
+  padding: 32px 24px;
+}
+
+.demo-nav {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  border-left: 1px solid #cbd5e1;
+  padding-left: 12px;
+}
+
+.demo-nav__link {
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.demo-nav__link:hover,
+.demo-nav__link:focus-visible {
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+.demo-nav__link:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .demo-panel {
   display: grid;
-  gap: 20px;
+  gap: 28px;
   width: min(100%, 560px);
 }
 
@@ -52,6 +89,28 @@ body {
 .demo-examples {
   display: grid;
   gap: 12px;
+}
+
+.demo-basic {
+  display: grid;
+  gap: 20px;
+  scroll-margin-top: 24px;
+}
+
+.demo-author {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 32px;
+}
+
+.demo-author a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.demo-author a:hover {
+  text-decoration: underline;
 }
 
 .demo-flag-example {
@@ -96,10 +155,23 @@ body {
 .demo-format-example h2,
 .demo-readonly-example h2,
 .demo-restricted-example h2,
-.demo-examples h2 {
+.demo-examples h2,
+.demo-author h2 {
   margin: 0;
   font-size: 18px;
   line-height: 1.25;
+}
+
+.demo-flag-example,
+.demo-country-selector-example,
+.demo-country-model-example,
+.demo-validation-example,
+.demo-format-example,
+.demo-readonly-example,
+.demo-restricted-example,
+.demo-examples,
+.demo-author {
+  scroll-margin-top: 24px;
 }
 
 .demo-example-list {
@@ -159,4 +231,20 @@ body {
 .demo-country-option-dial {
   color: #64748b;
   font-weight: 600;
+}
+
+@media (max-width: 820px) {
+  .demo-shell {
+    grid-template-columns: minmax(0, 560px);
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .demo-nav {
+    position: static;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    border-left: 0;
+    border-bottom: 1px solid #cbd5e1;
+    padding: 0 0 12px;
+  }
 }
