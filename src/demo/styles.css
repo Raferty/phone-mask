@@ -1,6 +1,6 @@
 body {
-  margin: 0;
   min-width: 320px;
+  margin: 0;
   color: #0f172a;
   font-family:
     Inter,
@@ -248,8 +248,8 @@ html {
   .demo-nav {
     position: static;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    border-left: 0;
-    border-bottom: 1px solid #cbd5e1;
     padding: 0 0 12px;
+    border-bottom: 1px solid #cbd5e1;
+    border-left: 0;
   }
 }

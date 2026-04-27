@@ -915,8 +915,8 @@ function handleBlur(event: FocusEvent): void {
 }
 
 .phone-mask-input--disabled {
-  cursor: not-allowed;
   background: var(--phone-mask-input-disabled-background, #f8fafc);
+  cursor: not-allowed;
 }
 
 .phone-mask-input--readonly {
@@ -947,8 +947,8 @@ function handleBlur(event: FocusEvent): void {
   width: var(--phone-mask-input-flag-width, 24px);
   height: var(--phone-mask-input-flag-height, 18px);
   border-radius: var(--phone-mask-input-flag-border-radius, 2px);
-  object-fit: cover;
   box-shadow: var(--phone-mask-input-flag-box-shadow, 0 0 0 1px rgb(15 23 42 / 10%));
+  object-fit: cover;
 }
 
 .phone-mask-input__flag-fallback {
@@ -1032,8 +1032,8 @@ function handleBlur(event: FocusEvent): void {
 }
 
 .phone-mask-input__country-selector-search:focus {
-  outline: var(--phone-mask-input-outline, none);
   border-color: var(--phone-mask-input-focus-border-color, #2563eb);
+  outline: var(--phone-mask-input-outline, none);
 }
 
 .phone-mask-input__country-selector-list {
@@ -1095,9 +1095,9 @@ function handleBlur(event: FocusEvent): void {
   font-size: var(--phone-mask-input-font-size, inherit);
   font-weight: var(--phone-mask-input-font-weight, inherit);
   line-height: var(--phone-mask-input-line-height, 1.4);
-  letter-spacing: var(--phone-mask-input-letter-spacing, inherit);
   background: transparent;
   caret-color: var(--phone-mask-input-caret-color, currentColor);
+  letter-spacing: var(--phone-mask-input-letter-spacing, inherit);
 }
 
 .phone-mask-input__control::placeholder {
