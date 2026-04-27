@@ -678,6 +678,12 @@ If the repository name changes, update `base` in `vite.pages.config.ts` or set
 ## Tests
 
 ```bash
+npm run lint
+```
+
+Runs ESLint for Vue/TypeScript files and Stylelint for CSS and Vue SFC styles.
+
+```bash
 npm test
 ```
 
@@ -697,8 +703,8 @@ that deleting `+420 601 123 456` does not create phantom digits.
 npm run release:check
 ```
 
-Runs the production build, type/component tests, Playwright demo smoke, Nuxt
-consumer smoke against a packed tarball, and `npm run pack:dry-run`.
+Runs linting, the production build, type/component tests, Playwright demo smoke,
+Nuxt consumer smoke against a packed tarball, and `npm run pack:dry-run`.
 
 `prepack` also runs the production build automatically before manual `npm pack`.
 `pack:dry-run` uses `--ignore-scripts` because `release:check` already builds

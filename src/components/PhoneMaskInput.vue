@@ -897,7 +897,7 @@ function handleBlur(event: FocusEvent): void {
     var(--phone-mask-input-border-color, #cbd5e1);
   border-radius: var(--phone-mask-input-border-radius, 4px);
   padding: var(--phone-mask-input-padding, 8px 12px);
-  background: var(--phone-mask-input-background, #fff);
+  background: var(--phone-mask-input-background, #ffffff);
   transition:
     border-color var(--phone-mask-input-transition-duration, 120ms)
       var(--phone-mask-input-transition-easing, ease),
@@ -1013,7 +1013,7 @@ function handleBlur(event: FocusEvent): void {
     var(--phone-mask-input-country-selector-menu-border-color, #cbd5e1);
   border-radius: var(--phone-mask-input-country-selector-menu-border-radius, 6px);
   padding: var(--phone-mask-input-country-selector-menu-padding, 8px);
-  background: var(--phone-mask-input-country-selector-menu-background, #fff);
+  background: var(--phone-mask-input-country-selector-menu-background, #ffffff);
   box-shadow: var(
     --phone-mask-input-country-selector-menu-box-shadow,
     0 16px 32px rgb(15 23 42 / 14%)
@@ -1029,7 +1029,7 @@ function handleBlur(event: FocusEvent): void {
   padding: var(--phone-mask-input-country-selector-search-padding, 8px 10px);
   color: var(--phone-mask-input-country-selector-search-color, #0f172a);
   font: var(--phone-mask-input-country-selector-search-font, inherit);
-  background: var(--phone-mask-input-country-selector-search-background, #fff);
+  background: var(--phone-mask-input-country-selector-search-background, #ffffff);
 }
 
 .phone-mask-input__country-selector-search:focus {
