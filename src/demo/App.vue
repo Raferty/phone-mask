@@ -507,10 +507,6 @@ function setExample(value: string): void {
 
         <dl class="demo-meta">
           <div>
-            <dt>Nickname</dt>
-            <dd>Raferty</dd>
-          </div>
-          <div>
             <dt>Telegram</dt>
             <dd>
               <a href="https://t.me/Raferty" target="_blank" rel="noreferrer">
