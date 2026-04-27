@@ -1,7 +1,7 @@
 {
-  "name": "phone-mask",
+  "name": "phone-mask-input",
   "version": "1.0.0",
-  "description": "Vue 3 phone input with country-aware formatting, masks, flags, and SSR-safe selector.",
+  "description": "Vue 3 phone mask input with country-aware formatting, masks, flags, and SSR-safe selector.",
   "type": "module",
   "packageManager": "npm@10.9.4",
   "files": [
@@ -13,15 +13,15 @@
     "dist/*.css"
   ],
   "types": "dist/index.d.ts",
-  "main": "dist/phone-mask.umd.cjs",
-  "module": "dist/phone-mask.js",
+  "main": "dist/phone-mask-input.umd.cjs",
+  "module": "dist/phone-mask-input.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/phone-mask.js",
-      "require": "./dist/phone-mask.umd.cjs"
+      "import": "./dist/phone-mask-input.js",
+      "require": "./dist/phone-mask-input.umd.cjs"
     },
-    "./style.css": "./dist/phone-mask.css",
+    "./style.css": "./dist/phone-mask-input.css",
     "./PhoneMaskInput.vue": "./src/components/PhoneMaskInput.vue"
   },
   "scripts": {
@@ -47,6 +47,7 @@
     "vue3",
     "phone",
     "phone-mask",
+    "phone-mask-input",
     "input",
     "libphonenumber",
     "nuxt",

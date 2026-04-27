@@ -105,7 +105,7 @@ async function waitForServer(url, timeoutMs = 30000) {
 }
 
 await run('npm', ['run', 'build']);
-const fixtureDir = await mkdtemp(join(tmpdir(), 'phone-mask-nuxt-'));
+const fixtureDir = await mkdtemp(join(tmpdir(), 'phone-mask-input-nuxt-'));
 const packOutput = await read('npm', ['pack', '--pack-destination', fixtureDir]);
 const packageTarball = resolve(fixtureDir, packOutput.trim().split('\n').at(-1) ?? '');
 const packageJson = {
@@ -116,7 +116,7 @@ const packageJson = {
   },
   dependencies: {
     nuxt: 'latest',
-    'phone-mask': `file:${packageTarball}`,
+    'phone-mask-input': `file:${packageTarball}`,
   },
 };
 
@@ -132,8 +132,8 @@ await writeFile(
   join(fixtureDir, 'app.vue'),
   `<script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput, type PhoneCountryCode } from 'phone-mask';
-import 'phone-mask/style.css';
+import { PhoneMaskInput, type PhoneCountryCode } from 'phone-mask-input';
+import 'phone-mask-input/style.css';
 
 const phone = ref('+420601123456');
 const country = ref<PhoneCountryCode | null>('CZ');

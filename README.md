@@ -1,4 +1,4 @@
-# phone-mask
+# phone-mask-input
 
 Vue component scaffold for a phone input with country-aware formatting.
 
@@ -10,8 +10,8 @@ The component stores a normalized international value in `v-model`, for example
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput } from 'phone-mask';
-import 'phone-mask/style.css';
+import { PhoneMaskInput } from 'phone-mask-input';
+import 'phone-mask-input/style.css';
 
 const phone = ref('');
 </script>
@@ -49,7 +49,7 @@ calling code, such as `+7` or `+1`, are treated as fixed mask text.
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput, type PhoneMaskByCountry } from 'phone-mask';
+import { PhoneMaskInput, type PhoneMaskByCountry } from 'phone-mask-input';
 
 const phone = ref('');
 
@@ -160,7 +160,7 @@ separately:
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput, type PhoneCountryCode } from 'phone-mask';
+import { PhoneMaskInput, type PhoneCountryCode } from 'phone-mask-input';
 
 const phone = ref('');
 const country = ref<PhoneCountryCode | null>('RU');
@@ -184,7 +184,7 @@ the component itself:
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput, type PhoneCountryCode } from 'phone-mask';
+import { PhoneMaskInput, type PhoneCountryCode } from 'phone-mask-input';
 
 const phone = ref('');
 const country = ref<PhoneCountryCode | null>('US');
@@ -309,7 +309,7 @@ to one of the allowed countries.
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput, type PhoneAllowedCountries } from 'phone-mask';
+import { PhoneMaskInput, type PhoneAllowedCountries } from 'phone-mask-input';
 
 const phone = ref('');
 const allowedCountries: PhoneAllowedCountries = ['RU', 'KZ'];
@@ -375,7 +375,7 @@ external `invalid` prop for visual and ARIA state.
 ```vue
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { PhoneMaskInput, type PhoneValidationMeta } from 'phone-mask';
+import { PhoneMaskInput, type PhoneValidationMeta } from 'phone-mask-input';
 
 const phone = ref('');
 const touched = ref(false);
@@ -418,7 +418,7 @@ Use `flagUrlResolver` to change where flag images come from:
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { PhoneMaskInput, type PhoneFlagUrlResolver } from 'phone-mask';
+import { PhoneMaskInput, type PhoneFlagUrlResolver } from 'phone-mask-input';
 
 const phone = ref('');
 const flagUrlResolver: PhoneFlagUrlResolver = (country) =>
@@ -515,7 +515,7 @@ client-only wrapper:
 
 ```vue
 <script setup lang="ts">
-import { PhoneMaskInput } from 'phone-mask';
+import { PhoneMaskInput } from 'phone-mask-input';
 
 const phone = ref('');
 </script>
@@ -540,7 +540,7 @@ npm run consumer:smoke:nuxt
 ```
 
 The smoke test builds the library, creates a temporary Nuxt app, installs the
-local package through `file:`, imports `PhoneMaskInput` and `phone-mask/style.css`,
+local package through `file:`, imports `PhoneMaskInput` and `phone-mask-input/style.css`,
 builds Nuxt, starts the SSR server, and checks that the rendered HTML contains
 the component markup.
 

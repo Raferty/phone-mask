@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'PhoneMask',
-      fileName: 'phone-mask',
+      name: 'PhoneMaskInput',
+      fileName: 'phone-mask-input',
     },
     rollupOptions: {
       external: ['vue'],
