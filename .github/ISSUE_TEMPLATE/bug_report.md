@@ -1,19 +1,16 @@
 ---
 name: Bug report
 about: Report a reproducible problem
-title: ""
+title: ''
 labels: bug
-assignees: ""
+assignees: ''
 ---
 
 ## Description
 
-
 ## Reproduction
 
-
 ## Expected behavior
-
 
 ## Environment
 

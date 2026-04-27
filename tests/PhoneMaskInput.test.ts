@@ -176,9 +176,9 @@ describe('PhoneMaskInput', () => {
     await wrapper.get('.phone-mask-input__country-selector-button').trigger('click');
     await wrapper.get('.phone-mask-input__country-selector-search').setValue('zzzzzzzz');
 
-    expect(wrapper.get('.phone-mask-input__country-selector-search').attributes('placeholder')).toBe(
-      'Поиск страны',
-    );
+    expect(
+      wrapper.get('.phone-mask-input__country-selector-search').attributes('placeholder'),
+    ).toBe('Поиск страны');
     expect(wrapper.get('.phone-mask-input__country-selector-empty').text()).toBe(
       'Страны не найдены',
     );

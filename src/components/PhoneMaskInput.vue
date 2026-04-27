@@ -303,7 +303,8 @@ watch(
   () => [props.modelValue, props.modelFormat, props.country, props.defaultCountry] as const,
   ([modelValue]) => {
     const nextDigits =
-      parsePhoneModelValue(modelValue, props.modelFormat, getInitialCountry()) || getInitialDigits();
+      parsePhoneModelValue(modelValue, props.modelFormat, getInitialCountry()) ||
+      getInitialDigits();
 
     if (nextDigits !== localDigits.value) {
       localDigits.value = nextDigits;
@@ -565,7 +566,11 @@ function handleDocumentPointerDown(event: PointerEvent): void {
   closeCountrySelector();
 }
 
-function updateInputValue(input: HTMLInputElement, nextDigits: string, nextDigitCaret: number): void {
+function updateInputValue(
+  input: HTMLInputElement,
+  nextDigits: string,
+  nextDigitCaret: number,
+): void {
   const nextFormattedValue = emitPhoneChange(nextDigits);
   const nextCaretPosition = getCaretPositionAfterDigitCount(nextFormattedValue, nextDigitCaret);
 
@@ -762,7 +767,7 @@ function handleBlur(event: FocusEvent): void {
           :src="countryFlagUrl"
           :alt="`${visibleCountry} flag`"
           @error="visibleCountry && handleFlagError(visibleCountry)"
-        >
+        />
         <span v-else-if="visibleCountry" class="phone-mask-input__flag-fallback">
           {{ visibleCountry }}
         </span>
@@ -771,10 +776,7 @@ function handleBlur(event: FocusEvent): void {
         </span>
       </button>
 
-      <div
-        v-if="isCountrySelectorOpen"
-        class="phone-mask-input__country-selector-menu"
-      >
+      <div v-if="isCountrySelectorOpen" class="phone-mask-input__country-selector-menu">
         <input
           ref="countrySelectorSearchRef"
           v-model="countrySearch"
@@ -788,7 +790,7 @@ function handleBlur(event: FocusEvent): void {
           :aria-controls="countrySelectorListId"
           :aria-activedescendant="activeCountryOptionId"
           @keydown="handleCountrySelectorKeydown"
-        >
+        />
 
         <div
           :id="countrySelectorListId"
@@ -823,7 +825,7 @@ function handleBlur(event: FocusEvent): void {
                 :src="option.flagUrl"
                 :alt="`${option.country} flag`"
                 @error="handleFlagError(option.country)"
-              >
+              />
               <span v-else class="phone-mask-input__flag-fallback">
                 {{ option.country }}
               </span>
@@ -853,7 +855,7 @@ function handleBlur(event: FocusEvent): void {
           :src="countryFlagUrl"
           :alt="`${visibleCountry} flag`"
           @error="visibleCountry && handleFlagError(visibleCountry)"
-        >
+        />
         <span v-else-if="visibleCountry" class="phone-mask-input__flag-fallback">
           {{ visibleCountry }}
         </span>
@@ -880,7 +882,7 @@ function handleBlur(event: FocusEvent): void {
       @focus="handleFocus"
       @input="handleInput"
       @paste="handlePaste"
-    >
+    />
   </div>
 </template>
 
@@ -928,10 +930,7 @@ function handleBlur(event: FocusEvent): void {
 
 .phone-mask-input--invalid.phone-mask-input--focused {
   border-color: var(--phone-mask-input-invalid-focus-border-color, #dc2626);
-  box-shadow: var(
-    --phone-mask-input-invalid-focus-box-shadow,
-    0 0 0 3px rgb(220 38 38 / 16%)
-  );
+  box-shadow: var(--phone-mask-input-invalid-focus-box-shadow, 0 0 0 3px rgb(220 38 38 / 16%));
 }
 
 .phone-mask-input__country-flag {

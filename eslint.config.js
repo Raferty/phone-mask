@@ -41,6 +41,7 @@ export default tseslint.config(
           varsIgnorePattern: '^_',
         },
       ],
+      'vue/html-self-closing': 'off',
       'vue/multi-word-component-names': 'off',
       'vue/attributes-order': 'off',
       'vue/max-attributes-per-line': 'off',

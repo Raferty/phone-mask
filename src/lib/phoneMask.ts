@@ -345,8 +345,9 @@ export function formatPhoneDigitsWithMask(
   }
 
   const mask = getPhoneMaskPlaceholder(normalizedDigits, countryMasks);
-  const nationalDigits =
-    phoneMeta.callingCode ? normalizedDigits.slice(phoneMeta.callingCode.length) : normalizedDigits;
+  const nationalDigits = phoneMeta.callingCode
+    ? normalizedDigits.slice(phoneMeta.callingCode.length)
+    : normalizedDigits;
   let digitIndex = 0;
 
   return mask.replace(/_/g, (placeholder) => {
@@ -438,7 +439,10 @@ export function getMaxFormattedPhoneLength(digits = ''): number {
   return formatPhoneDigits(paddedDigits).length;
 }
 
-export function getPhoneMaskPlaceholder(digits = '', countryMasks: PhoneMaskByCountry = {}): string {
+export function getPhoneMaskPlaceholder(
+  digits = '',
+  countryMasks: PhoneMaskByCountry = {},
+): string {
   const normalizedDigits = normalizePhoneDigits(digits);
 
   if (!normalizedDigits) {

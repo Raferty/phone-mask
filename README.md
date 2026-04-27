@@ -96,28 +96,28 @@ recognizable.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `modelValue` | `string` | `''` | Normalized phone value used by `v-model`. |
-| `country` | `PhoneCountryCode \| null` | `null` | Country value used by `v-model:country`. |
-| `defaultCountry` | `PhoneCountryCode \| null` | `null` | Initial country used when `modelValue` is empty. |
-| `id` | `string` | `undefined` | Forwarded to the input. |
-| `name` | `string` | `'phone'` | Forwarded to the input. |
-| `disabled` | `boolean` | `false` | Disables the input. |
-| `readonly` | `boolean` | `false` | Makes the input focusable/copyable but not editable. |
-| `invalid` | `boolean` | `false` | Applies invalid visual/ARIA state. |
-| `modelFormat` | `PhoneModelFormat` | `'e164'` | Controls the format emitted through `v-model`. |
-| `placeholder` | `string` | `+_ (___) ___-__-__` | Placeholder shown before any digits are entered. |
-| `countryMasks` | `PhoneMaskByCountry` | `{}` | Optional display mask overrides by country code. |
-| `allowedCountries` | `PhoneAllowedCountries` | `[]` | Optional list of allowed ISO country codes. Empty means all countries are allowed. |
-| `showCountryFlag` | `boolean` | `false` | Controls rendering of the country flag slot/default country flag. |
-| `showCountrySelector` | `boolean` | `false` | Renders the built-in country selector before the input. |
-| `flagUrlResolver` | `PhoneFlagUrlResolver` | `undefined` | Overrides the default flag URL for static flags and the country selector. |
-| `countryNameLocale` | `string \| string[]` | `'en'` | Locale passed to `Intl.DisplayNames` for country names in the selector. |
-| `countrySelectorLabel` | `string` | `'Country'` | Text shown in the selector button before a country is visible. |
-| `countrySelectorAriaLabel` | `string` | `'Select country'` | Accessible label for the selector button. |
-| `countrySearchPlaceholder` | `string` | `'Search country'` | Placeholder and accessible label for the selector search input. |
-| `noCountriesText` | `string` | `'No countries'` | Empty-state text shown when the selector search has no results. |
+| Prop                       | Type                       | Default              | Description                                                                        |
+| -------------------------- | -------------------------- | -------------------- | ---------------------------------------------------------------------------------- |
+| `modelValue`               | `string`                   | `''`                 | Normalized phone value used by `v-model`.                                          |
+| `country`                  | `PhoneCountryCode \| null` | `null`               | Country value used by `v-model:country`.                                           |
+| `defaultCountry`           | `PhoneCountryCode \| null` | `null`               | Initial country used when `modelValue` is empty.                                   |
+| `id`                       | `string`                   | `undefined`          | Forwarded to the input.                                                            |
+| `name`                     | `string`                   | `'phone'`            | Forwarded to the input.                                                            |
+| `disabled`                 | `boolean`                  | `false`              | Disables the input.                                                                |
+| `readonly`                 | `boolean`                  | `false`              | Makes the input focusable/copyable but not editable.                               |
+| `invalid`                  | `boolean`                  | `false`              | Applies invalid visual/ARIA state.                                                 |
+| `modelFormat`              | `PhoneModelFormat`         | `'e164'`             | Controls the format emitted through `v-model`.                                     |
+| `placeholder`              | `string`                   | `+_ (___) ___-__-__` | Placeholder shown before any digits are entered.                                   |
+| `countryMasks`             | `PhoneMaskByCountry`       | `{}`                 | Optional display mask overrides by country code.                                   |
+| `allowedCountries`         | `PhoneAllowedCountries`    | `[]`                 | Optional list of allowed ISO country codes. Empty means all countries are allowed. |
+| `showCountryFlag`          | `boolean`                  | `false`              | Controls rendering of the country flag slot/default country flag.                  |
+| `showCountrySelector`      | `boolean`                  | `false`              | Renders the built-in country selector before the input.                            |
+| `flagUrlResolver`          | `PhoneFlagUrlResolver`     | `undefined`          | Overrides the default flag URL for static flags and the country selector.          |
+| `countryNameLocale`        | `string \| string[]`       | `'en'`               | Locale passed to `Intl.DisplayNames` for country names in the selector.            |
+| `countrySelectorLabel`     | `string`                   | `'Country'`          | Text shown in the selector button before a country is visible.                     |
+| `countrySelectorAriaLabel` | `string`                   | `'Select country'`   | Accessible label for the selector button.                                          |
+| `countrySearchPlaceholder` | `string`                   | `'Search country'`   | Placeholder and accessible label for the selector search input.                    |
+| `noCountriesText`          | `string`                   | `'No countries'`     | Empty-state text shown when the selector search has no results.                    |
 
 ## HTML Attributes
 
@@ -229,21 +229,13 @@ The built-in selector supports basic keyboard interaction:
 Use `countryNameLocale` to localize the country names:
 
 ```vue
-<PhoneMaskInput
-  v-model="phone"
-  show-country-selector
-  country-name-locale="ru"
-/>
+<PhoneMaskInput v-model="phone" show-country-selector country-name-locale="ru" />
 ```
 
 For locale fallback chains, pass an array:
 
 ```vue
-<PhoneMaskInput
-  v-model="phone"
-  show-country-selector
-  :country-name-locale="['ru', 'en']"
-/>
+<PhoneMaskInput v-model="phone" show-country-selector :country-name-locale="['ru', 'en']" />
 ```
 
 Selector UI text is controlled separately from country names:
@@ -344,12 +336,12 @@ not known, input is allowed only if at least one possible country is in
 
 ## Events
 
-| Event | Payload | Description |
-| --- | --- | --- |
-| `update:modelValue` | `string` | Emits the normalized value, for example `+420601123456`. |
-| `update:country` | `PhoneCountryCode \| null` | Emits the country value for `v-model:country`. |
-| `change:country` | `PhoneCountryMeta` | Emits country metadata after input changes. |
-| `change:validation` | `PhoneValidationMeta` | Emits phone validation metadata after input changes. |
+| Event               | Payload                    | Description                                              |
+| ------------------- | -------------------------- | -------------------------------------------------------- |
+| `update:modelValue` | `string`                   | Emits the normalized value, for example `+420601123456`. |
+| `update:country`    | `PhoneCountryCode \| null` | Emits the country value for `v-model:country`.           |
+| `change:country`    | `PhoneCountryMeta`         | Emits country metadata after input changes.              |
+| `change:validation` | `PhoneValidationMeta`      | Emits phone validation metadata after input changes.     |
 
 `PhoneCountryMeta`:
 
@@ -434,11 +426,7 @@ const flagUrlResolver: PhoneFlagUrlResolver = (country) =>
 </script>
 
 <template>
-  <PhoneMaskInput
-    v-model="phone"
-    show-country-flag
-    :flag-url-resolver="flagUrlResolver"
-  />
+  <PhoneMaskInput v-model="phone" show-country-flag :flag-url-resolver="flagUrlResolver" />
 </template>
 ```
 
@@ -473,10 +461,10 @@ selector instead of the `countryFlag` slot.
 
 Slot props:
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `country` | `CountryCode \| null` | Detected ISO country code. |
-| `countryMeta` | `PhoneCountryMeta` | Full country detection metadata. |
+| Prop          | Type                  | Description                      |
+| ------------- | --------------------- | -------------------------------- |
+| `country`     | `CountryCode \| null` | Detected ISO country code.       |
+| `countryMeta` | `PhoneCountryMeta`    | Full country detection metadata. |
 
 ### `countryOption`
 
@@ -499,14 +487,14 @@ customize each row in the dropdown:
 
 Slot props:
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `option.country` | `CountryCode` | ISO country code. |
-| `option.name` | `string` | Localized country name. |
-| `option.callingCode` | `string` | Country calling code without `+`. |
-| `option.flagUrl` | `string` | Resolved flag URL, or an empty string after a load error. |
-| `active` | `boolean` | Whether the row is the current keyboard active option. |
-| `selected` | `boolean` | Whether the row matches the currently visible country. |
+| Prop                 | Type          | Description                                               |
+| -------------------- | ------------- | --------------------------------------------------------- |
+| `option.country`     | `CountryCode` | ISO country code.                                         |
+| `option.name`        | `string`      | Localized country name.                                   |
+| `option.callingCode` | `string`      | Country calling code without `+`.                         |
+| `option.flagUrl`     | `string`      | Resolved flag URL, or an empty string after a load error. |
+| `active`             | `boolean`     | Whether the row is the current keyboard active option.    |
+| `selected`           | `boolean`     | Whether the row matches the currently visible country.    |
 
 ## Input Behavior
 
@@ -578,72 +566,72 @@ The component can be styled from the outside with CSS variables:
 
 Available variables:
 
-| Variable | Default |
-| --- | --- |
-| `--phone-mask-input-gap` | `6px` |
-| `--phone-mask-input-width` | `100%` |
-| `--phone-mask-input-border-width` | `1px` |
-| `--phone-mask-input-border-color` | `#cbd5e1` |
-| `--phone-mask-input-border-radius` | `4px` |
-| `--phone-mask-input-padding` | `8px 12px` |
-| `--phone-mask-input-background` | `#ffffff` |
-| `--phone-mask-input-focus-border-color` | `#2563eb` |
-| `--phone-mask-input-focus-box-shadow` | `0 0 0 3px rgb(37 99 235 / 16%)` |
-| `--phone-mask-input-disabled-background` | `#f8fafc` |
-| `--phone-mask-input-disabled-color` | `#64748b` |
-| `--phone-mask-input-readonly-background` | `#f8fafc` |
-| `--phone-mask-input-readonly-color` | `#64748b` |
-| `--phone-mask-input-readonly-cursor` | `default` |
-| `--phone-mask-input-invalid-border-color` | `#dc2626` |
-| `--phone-mask-input-invalid-box-shadow` | `none` |
-| `--phone-mask-input-invalid-focus-border-color` | `#dc2626` |
-| `--phone-mask-input-invalid-focus-box-shadow` | `0 0 0 3px rgb(220 38 38 / 16%)` |
-| `--phone-mask-input-color` | `#0f172a` |
-| `--phone-mask-input-font` | `inherit` |
-| `--phone-mask-input-font-size` | `inherit` |
-| `--phone-mask-input-font-weight` | `inherit` |
-| `--phone-mask-input-line-height` | `1.4` |
-| `--phone-mask-input-letter-spacing` | `inherit` |
-| `--phone-mask-input-caret-color` | `currentColor` |
-| `--phone-mask-input-placeholder-color` | `#94a3b8` |
-| `--phone-mask-input-placeholder-opacity` | `1` |
-| `--phone-mask-input-outline` | `none` |
-| `--phone-mask-input-transition-duration` | `120ms` |
-| `--phone-mask-input-transition-easing` | `ease` |
-| `--phone-mask-input-country-flag-min-width` | `0` |
-| `--phone-mask-input-country-flag-color` | `currentColor` |
-| `--phone-mask-input-flag-width` | `24px` |
-| `--phone-mask-input-flag-height` | `18px` |
-| `--phone-mask-input-flag-border-radius` | `2px` |
-| `--phone-mask-input-flag-box-shadow` | `0 0 0 1px rgb(15 23 42 / 10%)` |
-| `--phone-mask-input-flag-fallback-color` | `#475569` |
-| `--phone-mask-input-flag-fallback-font-size` | `10px` |
-| `--phone-mask-input-flag-fallback-font-weight` | `600` |
-| `--phone-mask-input-flag-fallback-background` | `#f1f5f9` |
-| `--phone-mask-input-country-selector-button-gap` | `6px` |
-| `--phone-mask-input-country-selector-button-padding` | `2px 4px` |
-| `--phone-mask-input-country-selector-button-color` | `inherit` |
-| `--phone-mask-input-country-selector-button-background` | `transparent` |
-| `--phone-mask-input-country-selector-code-font-size` | `0.875em` |
-| `--phone-mask-input-country-selector-menu-width` | `280px` |
-| `--phone-mask-input-country-selector-menu-max-width` | `min(80vw, 320px)` |
-| `--phone-mask-input-country-selector-menu-border-color` | `#cbd5e1` |
-| `--phone-mask-input-country-selector-menu-border-radius` | `6px` |
-| `--phone-mask-input-country-selector-menu-background` | `#ffffff` |
-| `--phone-mask-input-country-selector-menu-box-shadow` | `0 16px 32px rgb(15 23 42 / 14%)` |
-| `--phone-mask-input-country-selector-menu-z-index` | `20` |
-| `--phone-mask-input-country-selector-search-border-color` | `#cbd5e1` |
-| `--phone-mask-input-country-selector-search-border-radius` | `4px` |
-| `--phone-mask-input-country-selector-search-padding` | `8px 10px` |
-| `--phone-mask-input-country-selector-list-max-height` | `240px` |
-| `--phone-mask-input-country-selector-option-grid-template-columns` | `auto minmax(0, 1fr) auto` |
-| `--phone-mask-input-country-selector-option-align-items` | `center` |
-| `--phone-mask-input-country-selector-option-min-height` | `40px` |
-| `--phone-mask-input-country-selector-option-gap` | `8px` |
-| `--phone-mask-input-country-selector-option-border-radius` | `4px` |
-| `--phone-mask-input-country-selector-option-padding` | `8px` |
-| `--phone-mask-input-country-selector-option-hover-background` | `#eff6ff` |
-| `--phone-mask-input-country-selector-muted-color` | `#64748b` |
+| Variable                                                           | Default                           |
+| ------------------------------------------------------------------ | --------------------------------- |
+| `--phone-mask-input-gap`                                           | `6px`                             |
+| `--phone-mask-input-width`                                         | `100%`                            |
+| `--phone-mask-input-border-width`                                  | `1px`                             |
+| `--phone-mask-input-border-color`                                  | `#cbd5e1`                         |
+| `--phone-mask-input-border-radius`                                 | `4px`                             |
+| `--phone-mask-input-padding`                                       | `8px 12px`                        |
+| `--phone-mask-input-background`                                    | `#ffffff`                         |
+| `--phone-mask-input-focus-border-color`                            | `#2563eb`                         |
+| `--phone-mask-input-focus-box-shadow`                              | `0 0 0 3px rgb(37 99 235 / 16%)`  |
+| `--phone-mask-input-disabled-background`                           | `#f8fafc`                         |
+| `--phone-mask-input-disabled-color`                                | `#64748b`                         |
+| `--phone-mask-input-readonly-background`                           | `#f8fafc`                         |
+| `--phone-mask-input-readonly-color`                                | `#64748b`                         |
+| `--phone-mask-input-readonly-cursor`                               | `default`                         |
+| `--phone-mask-input-invalid-border-color`                          | `#dc2626`                         |
+| `--phone-mask-input-invalid-box-shadow`                            | `none`                            |
+| `--phone-mask-input-invalid-focus-border-color`                    | `#dc2626`                         |
+| `--phone-mask-input-invalid-focus-box-shadow`                      | `0 0 0 3px rgb(220 38 38 / 16%)`  |
+| `--phone-mask-input-color`                                         | `#0f172a`                         |
+| `--phone-mask-input-font`                                          | `inherit`                         |
+| `--phone-mask-input-font-size`                                     | `inherit`                         |
+| `--phone-mask-input-font-weight`                                   | `inherit`                         |
+| `--phone-mask-input-line-height`                                   | `1.4`                             |
+| `--phone-mask-input-letter-spacing`                                | `inherit`                         |
+| `--phone-mask-input-caret-color`                                   | `currentColor`                    |
+| `--phone-mask-input-placeholder-color`                             | `#94a3b8`                         |
+| `--phone-mask-input-placeholder-opacity`                           | `1`                               |
+| `--phone-mask-input-outline`                                       | `none`                            |
+| `--phone-mask-input-transition-duration`                           | `120ms`                           |
+| `--phone-mask-input-transition-easing`                             | `ease`                            |
+| `--phone-mask-input-country-flag-min-width`                        | `0`                               |
+| `--phone-mask-input-country-flag-color`                            | `currentColor`                    |
+| `--phone-mask-input-flag-width`                                    | `24px`                            |
+| `--phone-mask-input-flag-height`                                   | `18px`                            |
+| `--phone-mask-input-flag-border-radius`                            | `2px`                             |
+| `--phone-mask-input-flag-box-shadow`                               | `0 0 0 1px rgb(15 23 42 / 10%)`   |
+| `--phone-mask-input-flag-fallback-color`                           | `#475569`                         |
+| `--phone-mask-input-flag-fallback-font-size`                       | `10px`                            |
+| `--phone-mask-input-flag-fallback-font-weight`                     | `600`                             |
+| `--phone-mask-input-flag-fallback-background`                      | `#f1f5f9`                         |
+| `--phone-mask-input-country-selector-button-gap`                   | `6px`                             |
+| `--phone-mask-input-country-selector-button-padding`               | `2px 4px`                         |
+| `--phone-mask-input-country-selector-button-color`                 | `inherit`                         |
+| `--phone-mask-input-country-selector-button-background`            | `transparent`                     |
+| `--phone-mask-input-country-selector-code-font-size`               | `0.875em`                         |
+| `--phone-mask-input-country-selector-menu-width`                   | `280px`                           |
+| `--phone-mask-input-country-selector-menu-max-width`               | `min(80vw, 320px)`                |
+| `--phone-mask-input-country-selector-menu-border-color`            | `#cbd5e1`                         |
+| `--phone-mask-input-country-selector-menu-border-radius`           | `6px`                             |
+| `--phone-mask-input-country-selector-menu-background`              | `#ffffff`                         |
+| `--phone-mask-input-country-selector-menu-box-shadow`              | `0 16px 32px rgb(15 23 42 / 14%)` |
+| `--phone-mask-input-country-selector-menu-z-index`                 | `20`                              |
+| `--phone-mask-input-country-selector-search-border-color`          | `#cbd5e1`                         |
+| `--phone-mask-input-country-selector-search-border-radius`         | `4px`                             |
+| `--phone-mask-input-country-selector-search-padding`               | `8px 10px`                        |
+| `--phone-mask-input-country-selector-list-max-height`              | `240px`                           |
+| `--phone-mask-input-country-selector-option-grid-template-columns` | `auto minmax(0, 1fr) auto`        |
+| `--phone-mask-input-country-selector-option-align-items`           | `center`                          |
+| `--phone-mask-input-country-selector-option-min-height`            | `40px`                            |
+| `--phone-mask-input-country-selector-option-gap`                   | `8px`                             |
+| `--phone-mask-input-country-selector-option-border-radius`         | `4px`                             |
+| `--phone-mask-input-country-selector-option-padding`               | `8px`                             |
+| `--phone-mask-input-country-selector-option-hover-background`      | `#eff6ff`                         |
+| `--phone-mask-input-country-selector-muted-color`                  | `#64748b`                         |
 
 ## Demo
 

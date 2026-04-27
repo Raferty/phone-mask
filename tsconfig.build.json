@@ -7,11 +7,6 @@
     "rootDir": "src",
     "noEmit": false
   },
-  "include": [
-    "src/index.ts",
-    "src/components/**/*.vue",
-    "src/lib/**/*.ts",
-    "src/env.d.ts"
-  ],
+  "include": ["src/index.ts", "src/components/**/*.vue", "src/lib/**/*.ts", "src/env.d.ts"],
   "exclude": ["src/demo/**"]
 }

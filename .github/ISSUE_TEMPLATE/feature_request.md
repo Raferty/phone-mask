@@ -1,16 +1,13 @@
 ---
 name: Feature request
 about: Suggest an improvement
-title: ""
+title: ''
 labels: enhancement
-assignees: ""
+assignees: ''
 ---
 
 ## Problem
 
-
 ## Proposal
 
-
 ## Alternatives
-

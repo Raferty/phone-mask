@@ -148,7 +148,8 @@ const selectedCountryName = computed(() => {
   return regionNames.of(selectedCountry.value) ?? '';
 });
 const validationInvalid = computed(
-  () => validationTouched.value && Boolean(phoneWithValidation.value) && !validationMeta.value?.isValid,
+  () =>
+    validationTouched.value && Boolean(phoneWithValidation.value) && !validationMeta.value?.isValid,
 );
 
 function setExample(value: string): void {
@@ -159,12 +160,7 @@ function setExample(value: string): void {
 <template>
   <main class="demo-shell">
     <aside class="demo-nav" aria-label="Demo navigation">
-      <a
-        v-for="item in demoNavItems"
-        :key="item.href"
-        class="demo-nav__link"
-        :href="item.href"
-      >
+      <a v-for="item in demoNavItems" :key="item.href" class="demo-nav__link" :href="item.href">
         {{ item.label }}
       </a>
     </aside>
@@ -509,9 +505,7 @@ function setExample(value: string): void {
           <div>
             <dt>Telegram</dt>
             <dd>
-              <a href="https://t.me/Raferty" target="_blank" rel="noreferrer">
-                @Raferty
-              </a>
+              <a href="https://t.me/Raferty" target="_blank" rel="noreferrer"> @Raferty </a>
             </dd>
           </div>
         </dl>

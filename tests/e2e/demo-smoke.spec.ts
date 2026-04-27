@@ -9,7 +9,9 @@ test('demo supports input, country selector, and aligned dropdown', async ({ pag
   await primaryInput.pressSequentially('420601123456');
 
   await expect(primaryInput).toHaveValue('+420 601 123 456');
-  await expect(page.getByText('Country name').first().locator('..').getByText('Czechia')).toBeVisible();
+  await expect(
+    page.getByText('Country name').first().locator('..').getByText('Czechia'),
+  ).toBeVisible();
 
   const selectorSection = page.getByLabel('Country selector example');
   const selectorInput = selectorSection.locator('input[type="tel"]');
@@ -17,7 +19,9 @@ test('demo supports input, country selector, and aligned dropdown', async ({ pag
   await selectorSection.locator('.phone-mask-input__country-selector-button').click();
 
   const wrapperBox = await selectorSection.locator('.phone-mask-input').boundingBox();
-  const menuBox = await selectorSection.locator('.phone-mask-input__country-selector-menu').boundingBox();
+  const menuBox = await selectorSection
+    .locator('.phone-mask-input__country-selector-menu')
+    .boundingBox();
 
   expect(Math.abs((menuBox?.x ?? 0) - (wrapperBox?.x ?? 0))).toBeLessThanOrEqual(1);
 
