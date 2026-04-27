@@ -26,11 +26,13 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 24
-          cache: npm
+          node-version: 22
+
+      - name: Use stable npm
+        run: npm install -g npm@10
 
       - name: Install dependencies
-        run: npm install --no-audit --fund=false
+        run: npm ci --no-audit --fund=false --cache .npm-cache
 
       - name: Build demo
         run: npm run build:pages

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Vue 3 phone input with country-aware formatting, masks, flags, and SSR-safe selector.",
   "type": "module",
+  "packageManager": "npm@10.9.4",
   "files": [
     "CHANGELOG.md",
     "dist"
